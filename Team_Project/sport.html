@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Event Management (UCER) </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #28a745;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        nav {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        section {
+            padding: 20px;
+        }
+        .content {
+            margin-bottom: 40px;
+        }
+        h2 {
+            color: #28a745;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th, td {
+            padding: 12px;
+        }
+        th {
+            background-color: #6990b6;
+            color: white;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Sports Event Management(UCER)</h1>
+    </header>
+
+    <nav>
+        <a href="#timetable">Timetable</a>
+        <a href="#registration">Registration</a>
+        <a href="#registered-students">Registered Students</a>
+        <a href="#updates">Sports Updates</a>
+    </nav>
+
+    <!-- Timetable Section -->
+    <section id="timetable" class="content">
+        <h2>Sports Timetable</h2>
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Sport</th>
+                <th>Location</th>
+            </tr>
+            <tr>
+                <td>24th September 2024</td>
+                <td>10:00 AM - 12:00 PM</td>
+                <td>Football</td>
+                <td>UCER SPORT GROUND</td>
+            </tr>
+            <tr>
+                <td>25th September 2024</td>
+                <td>2:00 PM - 4:00 PM</td>
+                <td>Cricket</td>
+                <td>UIT SPORT GROUND</td>
+            </tr>
+            <tr>
+                <td>26th September 2024</td>
+                <td>9:00 AM - 11:00 AM</td>
+                <td>Basketball</td>
+                <td>UCER LIBRARY</td>
+            </tr>
+
+            <tr>
+                <td>25th September 2024</td>
+                <td>2:00 PM - 4:00 PM</td>
+                <td>Cricket</td>
+                <td>UNITED TOWER</td>
+            </tr>
+
+            <tr>
+                <td>25th September 2024</td>
+                <td>2:00 PM - 4:00 PM</td>
+                <td>CHESS</td>
+                <td>UCER LIBRARY</td>
+            </tr>
+
+            <tr>
+                <td>25th September 2024</td>
+                <td>2:00 PM - 4:00 PM</td>
+                <td>KABADDI</td>
+                <td>UCER</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- Registration Section -->
+    <section id="registration" class="content">
+        <h2>Student Registration</h2>
+        <form id="registration-form">
+            <input type="text" id="student-name" placeholder="Enter Student Name" required><br>
+            <input type="text" id="student-sport" placeholder="Enter Sport" required><br>
+            <button type="button" onclick="registerStudent()">Register</button>
+            <p class="error-message" id="error-message"></p>
+        </form>
+    </section>
+
+    <!-- Registered Students Section -->
+    <section id="registered-students" class="content">
+        <h2>Registered Students List</h2>
+        <table id="students-table">
+            <tr>
+                <th>Student Name</th>
+                <th>Sport</th>
+            </tr>
+            <!-- Dynamically filled rows will appear here -->
+        </table>
+    </section>
+
+    <!-- Sports Updates Section -->
+    <section id="updates" class="content">
+        <h2>Sports Updates</h2>
+        <p>Stay tuned for the latest sports updates during the event. We'll provide live scores, announcements, and more information as the events progress.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Sports Event Management. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript for student registration and displaying registered students
+        function registerStudent() {
+            const name = document.getElementById('student-name').value;
+            const sport = document.getElementById('student-sport').value;
+            const errorMessage = document.getElementById('error-message');
+            const table = document.getElementById('students-table');
+
+            if (name === '' || sport === '') {
+                errorMessage.textContent = "Both fields are required!";
+                return;
+            }
+
+            // Create a new row and add to the registered students table
+            const newRow = table.insertRow();
+            const nameCell = newRow.insertCell(0);
+            const sportCell = newRow.insertCell(1);
+
+            nameCell.textContent = name;
+            sportCell.textContent = sport;
+
+            // Clear input fields after registration
+            document.getElementById('student-name').value = '';
+            document.getElementById('student-sport').value = '';
+            errorMessage.textContent = '';
+        }
+    </script>
+
+</body>
+</html>

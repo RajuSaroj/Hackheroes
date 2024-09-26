@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+}
+.question-box {
+    border: 1px solid #ddd;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+.answer-box {
+    margin-top: 20px;
+    display: none;
+}
+.btn {
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: #e90ba6;
+}
+#results {
+    display: none;
+    margin-top: 20px;
+}
+canvas {
+    margin-top: 20px;
+}
